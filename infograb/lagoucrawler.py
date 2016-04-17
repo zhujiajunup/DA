@@ -281,7 +281,7 @@ class LagouCrawler:
         all_cities = self.grab_city()
         all_positions = self.grab_position()
 
-        for i in range(18, int(all_cities.__len__())):
+        for i in range(0, int(all_cities.__len__())):
             start_time = datetime.datetime.now()
             for j in range(0, int(all_positions.__len__())):
                 grabed_cities_file = open("d:\\grabed3.txt", 'a')

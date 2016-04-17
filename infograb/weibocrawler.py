@@ -148,7 +148,7 @@ class WeiboCrawler:
         if 'card_group' in comment_json:
             comment_card_group = comment_json['card_group']
             for comment_group in comment_card_group:
-                print_comment(comment_group)
+                self.print_comment(comment_group)
         print("总页面数：max_page：\t"+str(max_page))
         while page <= max_page:
             print("curr_page:\t"+str(page)+"\t    max_page\t:"+str(max_page))
@@ -156,7 +156,7 @@ class WeiboCrawler:
             if 'card_group' in comment_json:
                 comment_card_group = comment_json['card_group']
                 for comment_group in comment_card_group:
-                    print_comment(comment_group)
+                    self.print_comment(comment_group)
             page += 1
 
     def grab_weibo(self):
@@ -173,7 +173,7 @@ class WeiboCrawler:
 
         c = '3963770537235924&type=comment&hot=0&page=2'
         for group in card_group:
-            print_info(group)
+            self.print_info(group)
             mblog = group['mblog']
             curr_blog_id = mblog['id']
             user = mblog['user']
@@ -192,7 +192,7 @@ class WeiboCrawler:
             next_cursor = return_json[0]['next_cursor']
             previous_cursor = return_json[0]['previous_cursor']
             for group in card_group:
-                print_info(group)
+                self.print_info(group)
                 mblog = group['mblog']
                 curr_blog_id = mblog['id']
                 user = mblog['user']
@@ -200,146 +200,33 @@ class WeiboCrawler:
                 self.grab_comment(curr_blog_id)
         return
 
+    def print_info(self, group):
+        mblog = group['mblog']
+        text = mblog['text']
+        user = mblog['user']
+        created_at = mblog['created_at']
+        comments_count = mblog['comments_count']
+        like_count = mblog['like_count']
+        reposts_count = mblog['reposts_count']
+        screen_name = user['screen_name']
+        fansNum = user['fansNum']
+        statuses_count = user['statuses_count']
 
-def make():
-    head = {
-        'Accept': '*/*',
-        'Accept-Encoding': 'gzip,deflate',
-        'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
-        'Connection': 'keep-alive',
-        'Content-Length': '254',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Host': 'passport.weibo.cn',
-        'Origin': 'https://passport.weibo.cn',
-        'Referer': 'https://passport.weibo.cn/signin/login?'
-                   'entry=mweibo&res=wel&wm=3349&r=http%3A%2F%2Fm.weibo.cn%2F',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML,'
-                      ' like Gecko) Chrome/37.0.2062.124 Safari/537.36'
-    }
-    cj = http.cookiejar.CookieJar()
-    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-    header = []
-    for key, value in head.items():
-        elem = (key, value)
-        header.append(elem)
-    opener.addheaders = header
-    return opener
+        print("用户名："+screen_name, "发布时间："+created_at, "转发数："+str(reposts_count),
+              "评论数："+str(comments_count), "点赞数："+str(like_count),
+              "粉丝个数："+str(fansNum), "关注："+str(statuses_count), "微博内容："+text)
 
-
-def login():
-        opener = make()
-        args = {
-            'username': '767543579@qq.com',
-            'password': 'QWErty',
-            'savestate': 1,
-            'ec': 0,
-            'pagerefer': 'https://passport.weibo.cn/signin/'
-                         'welcome?entry=mweibo&r=http%3A%2F%2Fm.weibo.cn%2F&wm=3349&vt=4',
-            'entry': 'mweibo',
-            'wentry': '',
-            'loginfrom': '',
-            'client_id': '',
-            'code': '',
-            'qq': '',
-            'hff': '',
-            'hfp': ''
-        }
-        login_url = 'https://passport.weibo.cn/sso/login'
-        post_data = urllib.parse.urlencode(args).encode()
-        print('loging.....')
-        print('正在打开：'+login_url)
-        opener.open(login_url, post_data)
-        head = {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            # 'Accept-Encoding': 'gzip,deflate,sdch',
-            'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
-            'Host': 'm.weibo.cn',
-            'Proxy-Connection': 'keep-alive',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36'
-                          ' (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36'
-        }
-        header = []
-        for key, value in head.items():
-            elem = (key, value)
-            header.append(elem)
-        opener.addheaders = header
-
-        rsp = opener.open('http://m.weibo.cn/index/feed?format=cards')
-        return_json = json.loads(rsp.read().decode())
-        card_group = return_json[0]['card_group']
-        next_cursor = return_json[0]['next_cursor']
-        previous_cursor = return_json[0]['previous_cursor']
-        page = return_json[0]['page']
-        max_page = return_json[0]['maxPage']
-        page = 1
-        url = 'http://m.weibo.cn/single/rcList?format=cards&id='
-        c = '3963770537235924&type=comment&hot=0&page=2'
-        for group in card_group:
-            print_info(group)
-            mblog = group['mblog']
-            curr_blog_id = mblog['id']
-            user = mblog['user']
-            user_id = user['id']
-            req_url = url + str(curr_blog_id) + '&type=comment&hot=0&page='+str(page)
-            print(req_url)
-            rsp = opener.open(req_url)
-            return_json = json.loads(rsp.read().decode())
-            if return_json is None:
-                break
-            if page == 1:
-                comment_json = return_json[1]
-            else:
-                comment_json = return_json[0]
-            print(comment_json)
-            if 'card_group' in comment_json:
-                comment_card_group = comment_json['card_group']
-
-                for comment_group in comment_card_group:
-                    print_comment(comment_group)
-            # page += 1
-
-        n = 20
-        while n > 0:
-            n -= 1
-            rsp = opener.open('http://m.weibo.cn/index/feed?format=cards&next_cursor='+str(next_cursor) +
-                              '&page='+str(page))
-            return_json = json.loads(rsp.read().decode())
-            card_group = return_json[0]['card_group']
-            next_cursor = return_json[0]['next_cursor']
-            previous_cursor = return_json[0]['previous_cursor']
-            for group in card_group:
-                print_info(group)
-        return
-
-
-def print_comment(group):
-    created_at = group['created_at']  # 评论的时间
-    comment_id = group['id']  # 该条评论的id
-    comment_content = group['text']  # 评论内容
-    comment_source = group['source']  # 评论来源，什么客户端
-    like_counts = group['like_counts']  # 被点赞数
-    comment_user = group['user']  # 评论用户
-    screen_name = comment_user['screen_name']  # 评论用户
-    comment_user_id = comment_user['id']  # 评论用户id
-    print("\t用户id为"+str(comment_user_id)+",\t昵称为"+screen_name+",\t在"
-          + created_at+"\t发了：<"+comment_content+"> 评论，\t获得了<"+str(like_counts)+">个赞")
-
-
-def print_info(group):
-    mblog = group['mblog']
-    text = mblog['text']
-    user = mblog['user']
-    created_at = mblog['created_at']
-    comments_count = mblog['comments_count']
-    like_count = mblog['like_count']
-    reposts_count = mblog['reposts_count']
-    screen_name = user['screen_name']
-    fansNum = user['fansNum']
-    statuses_count = user['statuses_count']
-
-    print("用户名："+screen_name, "发布时间："+created_at, "转发数："+str(reposts_count),
-          "评论数："+str(comments_count), "点赞数："+str(like_count),
-          "粉丝个数："+str(fansNum), "关注："+str(statuses_count), "微博内容："+text)
+    def print_comment(self, group):
+        created_at = group['created_at']  # 评论的时间
+        comment_id = group['id']  # 该条评论的id
+        comment_content = group['text']  # 评论内容
+        comment_source = group['source']  # 评论来源，什么客户端
+        like_counts = group['like_counts']  # 被点赞数
+        comment_user = group['user']  # 评论用户
+        screen_name = comment_user['screen_name']  # 评论用户
+        comment_user_id = comment_user['id']  # 评论用户id
+        print("\t用户id为"+str(comment_user_id)+",\t昵称为"+screen_name+",\t在"
+              + created_at+"\t发了：<"+comment_content+"> 评论，\t获得了<"+str(like_counts)+">个赞")
 
 
 def main():
