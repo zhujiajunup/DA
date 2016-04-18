@@ -11,7 +11,7 @@ from time import sleep
 from queue import Queue
 from bs4 import BeautifulSoup
 
-from grabutil.mysqlconnection import Connection
+from grabutil.mysqlconnection import MysqlConnection
 
 
 class LagouCrawler:
@@ -46,7 +46,7 @@ class LagouCrawler:
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko'
         }
         self.index = 0
-        self.mysqlconn = Connection(db=db)
+        self.mysqlconn = MysqlConnection(db=db)
         self.my_opener = self.make_my_opener()
         self.start_thread()  # 开启多线程
 

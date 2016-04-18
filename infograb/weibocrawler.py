@@ -1,19 +1,56 @@
 __author__ = 'Administrator'
+
 import http.cookiejar
 import urllib.request
 import urllib.parse
 import json
+from grabutil.mysqlconnection import MysqlConnection
 import redis
 import os
 
 
 class WeiboCrawler:
-    def __init__(self, user, password):
+    def __init__(self, user, password, db='weibo'):
         self.user = user
         self.password = password
         self.opener = self.make_my_opener()
+        self.index = 0
         self.login_url = 'https://passport.weibo.cn/sso/login'
+        self.mysqlconn = MysqlConnection(db=db)
+        self.proxies = [{"HTTP": "58.248.137.228:80"}, {"HTTP": "58.251.132.181:8888"}, {"HTTP": "60.160.34.4:3128"},
+                        {"HTTP": "60.191.153.12:3128"}, {"HTTP": "60.191.164.22:3128"}, {"HTTP": "80.242.219.50:3128"},
+                        {"HTTP": "86.100.118.44:80"}, {"HTTP": "88.214.207.89:3128"}, {"HTTP": "91.183.124.41:80"},
+                        {"HTTP": "93.51.247.104:80"}]
+        self.user_insert_query = 'insert into weibo.user(user_id, description, fans_num, screen_name,' \
+                                 ' statuses_count, follow_num, profile_image_url, profile_url) value ' \
+                                 '(%s, %s, %s, %s, %s, %s, %s, %s)'
+        self.blog_insert_query = 'insert into weibo.blog(blog_id, blog_text, blog_source, blog_created_at, ' \
+                                 'blog_created_timestamp, blog_like_count, blog_comment_count, ' \
+                                 'blog_forward_count, blog_pic_ids, blog_retweet_id, blog_user_id) value (%s, %s, %s, %s, %s, ' \
+                                 '%s, %s, %s, %s, %s, %s)'
+        self.comment_insert_query = 'insert into weibo.comment(comment_id, comment_text, created_at,' \
+                                    ' like_counts, comment_user_id) value(%s, %s, %s, %s, %s)'
+        self.pic_insert_query = 'insert into weibo.picture(pic_id, pic_url) value (%s, %s)'
+        self.head = {
+            'Accept': '*/*',
+            # 'Accept-Encoding': 'gzip,deflate,sdch',
+            'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
+            'Host': 'm.weibo.cn',
+            'Proxy-Connection': 'keep-alive',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36'
+                          ' (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36'
+        }
         # self.seed = 'http://m.weibo.cn/login?ns=1&backURL=http%3A%2F%2Fm.weibo.cn%2F&backTitle=%CE%A2%B2%A9&vt=4&'
+
+    def change_proxy(self):
+        proxy_handler = urllib.request.ProxyHandler(self.proxies[self.index % self.proxies.__len__()])
+        print("换代理了..."+str(self.proxies[self.index % self.proxies.__len__()]))
+        self.index += 1
+        if self.index >= 1000:
+            self.index = 0
+        # proxy_auth_handler = urllib.request.ProxyBasicAuthHandler()
+
+        self.opener.add_handler(proxy_handler)
 
     def login(self):
         args = {
@@ -45,7 +82,6 @@ class WeiboCrawler:
         模拟浏览器发送请求
         :return:
         """
-
         head = {
             'Accept': '*/*',
             'Accept-Encoding': 'gzip,deflate',
@@ -85,12 +121,79 @@ class WeiboCrawler:
             header.append(elem)
         self.opener.addheaders = header
 
+    def insert_blog_info(self, blog_info):
+        print('insert blog info '+str(blog_info))
+        if blog_info.__contains__('deleted'):
+            return
+        blog_id = blog_info['idstr']
+
+        blog_text = blog_info['text']
+        blog_source = blog_info['source']
+        blog_create_at = blog_info['created_at']
+        blog_created_timestamp = blog_info['created_timestamp']
+        blog_like_count = blog_info['like_count']
+        blog_comment_count = blog_info['comments_count']
+        blog_forward_conut = blog_info['attitudes_count']  # TODO
+        blog_pic_ids = ''
+        if blog_info.__contains__('pics'):
+            blog_pictures = blog_info['pics']
+
+            for pic in blog_pictures:
+                self.insert_pic_info(pic)
+                blog_pic_ids += pic['pid']+','
+        blog_retweet_id = ''
+        if blog_info.__contains__('retweeted_status'):
+            self.insert_blog_info(blog_info['retweeted_status'])
+            blog_retweet_id += blog_info['retweeted_status']['idstr']
+        if self.insert_user_info(blog_info['user']):
+            self.mysqlconn.execute_single(self.blog_insert_query, (blog_id, blog_text, blog_source, blog_create_at,
+                                                                   blog_created_timestamp, blog_like_count,
+                                                                   blog_comment_count, blog_forward_conut, blog_pic_ids,
+                                                                   blog_retweet_id, blog_info['user']['id']))
+        pass
+
+    def insert_pic_info(self, pic_info):
+        pic_id = pic_info['pid']
+        pic_url = pic_info['url']
+        self.mysqlconn.execute_single(self.pic_insert_query, (pic_id, pic_url))
+        pass
+
+    def insert_user_info(self, user_info):
+        print("user info "+str(user_info))
+        user_id = user_info['id']
+        if user_id is None:
+            return False
+        description = user_info['description']
+        fans_num = str(user_info['fansNum'])
+        screen_name = user_info['screen_name']
+        statuses_count = str(user_info['statuses_count'])
+        follow_num = '0'  # user_info['follow_num']
+        profile_image_url = user_info['profile_image_url']
+        profile_url = user_info['profile_url']
+        if self.mysqlconn.exist("select * from weibo.user where user_id="+str(user_id)):
+            update_query = 'update weibo.user set description="'+description+'",fans_num="'+fans_num +\
+                           '",screen_name="'+screen_name+'",statuses_count="'+statuses_count+'",follow_num="'\
+                           + follow_num + '",profile_image_url="'+profile_image_url+'",profile_url="'\
+                           + profile_url+'" where user_id='+str(user_id)
+            print(update_query)
+            self.mysqlconn.execute_single(update_query)
+        else:
+            self.mysqlconn.execute_single(self.user_insert_query, (user_id, description, fans_num, screen_name,
+                                                                   statuses_count, follow_num, profile_image_url,
+                                                                   profile_url))
+        return True
+
+    def insert_comment_info(self, comment_info):
+        pass
+
     def grab_user_blogs(self):
         end = False
         page = 1
         while not end:
             url = 'http://m.weibo.cn/page/json?containerid=1005052210643391_-_WEIBO_SECOND_PROFILE_WEIBO&page='+str(page)
             page += 1
+            if page % 10 == 0:  # 换代理
+                self.change_proxy()
             print("正在打开："+url)
             rsp = self.opener.open(url)
             return_json = json.loads(rsp.read().decode())
@@ -98,11 +201,15 @@ class WeiboCrawler:
             cards = return_json['cards']
             for card in cards:
                 if card.__contains__('msg'):
+                    end = True
                     break
                 card_group = card['card_group']
 
                 for blog_info in card_group:
-                    print(blog_info)
+                    if blog_info['card_type'] != 9:
+                        continue
+                    # print(blog_info['mblog'])
+                    self.insert_blog_info(blog_info['mblog'])
 
     def start(self):
         self.login()
