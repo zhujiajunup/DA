@@ -11,6 +11,20 @@ def sin_figure():
     plt.show()
 
 
+def aa():
+
+    import pylab as pl
+    # make an array of random numbers with a gaussian distribution with
+    # mean = 5.0
+    # rms = 3.0
+    # number of points = 1000
+    data = np.random.normal(5.0, 3.0, 1000)
+    # make a histogram of the data array
+    pl.hist(data)
+    # make plot labels
+    pl.xlabel('data')
+    pl.show()
+
 def plot():
 
     x = [0, 1, 2, 3, 4, 5]
@@ -19,7 +33,6 @@ def plot():
     plt.plot(x, y, '-.r')
 
     plt.show()
-    plt.save("d:\\1.png")
 
 
 def main():

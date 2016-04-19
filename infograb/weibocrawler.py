@@ -192,8 +192,9 @@ class WeiboCrawler:
         while not end:
             url = 'http://m.weibo.cn/page/json?containerid=1005052210643391_-_WEIBO_SECOND_PROFILE_WEIBO&page='+str(page)
             page += 1
-            if page % 5 == 0:  # 换代理
-                self.change_proxy()
+            self.change_proxy()
+            # if page % 5 == 0:  # 换代理
+
             print("正在打开："+url)
             rsp = self.opener.open(url)
             return_json = json.loads(rsp.read().decode())
