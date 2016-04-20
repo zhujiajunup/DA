@@ -8,6 +8,8 @@ from grabutil.mysqlconnection import MysqlConnection
 import redis
 import os
 
+from time import sleep, localtime, strftime
+
 
 class WeiboCrawler:
     def __init__(self, user, password, db='weibo'):
@@ -109,8 +111,10 @@ class WeiboCrawler:
         head = {
             'Accept': '*/*',
             # 'Accept-Encoding': 'gzip,deflate,sdch',
+            'Connection': 'keep-alive',
             'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
             'Host': 'm.weibo.cn',
+            'Referer': 'http://m.weibo.cn/page/tpl?containerid=1005052210643391_-_WEIBO_SECOND_PROFILE_WEIBO',
             'Proxy-Connection': 'keep-alive',
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36'
                           ' (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36'
@@ -122,15 +126,17 @@ class WeiboCrawler:
         self.opener.addheaders = header
 
     def insert_blog_info(self, blog_info):
-        print('insert blog info '+str(blog_info))
+        # print('insert blog info '+str(blog_info))
         if blog_info.__contains__('deleted'):
             return
         blog_id = blog_info['idstr']
 
         blog_text = blog_info['text']
         blog_source = blog_info['source']
-        blog_create_at = blog_info['created_at']
+
         blog_created_timestamp = blog_info['created_timestamp']
+
+        blog_create_at = strftime('%Y-%m-%d %H:%M:%S', localtime(int(blog_created_timestamp)))
         blog_like_count = blog_info['like_count']
         blog_comment_count = blog_info['comments_count']
         blog_forward_conut = blog_info['attitudes_count']  # TODO
@@ -159,7 +165,7 @@ class WeiboCrawler:
         pass
 
     def insert_user_info(self, user_info):
-        print("user info "+str(user_info))
+        # print("user info "+str(user_info))
         user_id = user_info['id']
         if user_id is None:
             return False
@@ -175,7 +181,7 @@ class WeiboCrawler:
                            '",screen_name="'+screen_name+'",statuses_count="'+statuses_count+'",follow_num="'\
                            + follow_num + '",profile_image_url="'+profile_image_url+'",profile_url="'\
                            + profile_url+'" where user_id='+str(user_id)
-            print(update_query)
+            # print(update_query)
             self.mysqlconn.execute_single(update_query)
         else:
             self.mysqlconn.execute_single(self.user_insert_query, (user_id, description, fans_num, screen_name,
@@ -187,30 +193,45 @@ class WeiboCrawler:
         pass
 
     def grab_user_blogs(self):
-        end = False
+        error = False
         page = 1
-        while not end:
+        url = 'http://m.weibo.cn/page/json?containerid=1005052210643391_-_WEIBO_SECOND_PROFILE_WEIBO&page='+str(page)
+        print("正在打开："+url)
+        rsp = self.opener.open(url)
+        return_json = json.loads(rsp.read().decode())
+        print('返回数据：'+str(return_json))
+        card = return_json['cards'][0]
+        max_page = card['maxPage']
+        card_group = card['card_group']
+        for blog_info in card_group:
+            if blog_info['card_type'] != 9:
+                continue
+                # print(blog_info['mblog'])
+            self.insert_blog_info(blog_info['mblog'])
+        page += 1
+        while page <= max_page:
             url = 'http://m.weibo.cn/page/json?containerid=1005052210643391_-_WEIBO_SECOND_PROFILE_WEIBO&page='+str(page)
-            page += 1
-            self.change_proxy()
-            # if page % 5 == 0:  # 换代理
-
             print("正在打开："+url)
             rsp = self.opener.open(url)
             return_json = json.loads(rsp.read().decode())
             print('返回数据：'+str(return_json))
             cards = return_json['cards']
+
             for card in cards:
                 if card.__contains__('msg'):
-                    end = True
+                    error = True
                     break
                 card_group = card['card_group']
-
+                error = False
                 for blog_info in card_group:
                     if blog_info['card_type'] != 9:
                         continue
                     # print(blog_info['mblog'])
                     self.insert_blog_info(blog_info['mblog'])
+            if not error:
+                page += 1
+
+            self.change_proxy()
 
     def start(self):
         self.login()

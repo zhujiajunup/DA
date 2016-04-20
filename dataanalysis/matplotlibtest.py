@@ -4,39 +4,53 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def sin_figure():
-    x = np.arange(-np.pi, np.pi, 0.01)
-    y = np.sin(x)
-    plt.plot(x, y, 'g')
+def horizontal_bar():
+    """
+    Simple demo of a horizontal bar chart.
+    """
+    plt.rcdefaults()
+
+    # Example data
+    people = ('Tom', 'Dick', 'Harry', 'Slim', 'Jim')
+    y_pos = np.arange(len(people))
+    performance = 3 + 10 * np.random.rand(len(people))
+    error = np.random.rand(len(people))
+
+    plt.barh(y_pos, performance, xerr=error, align='center')
+    plt.yticks(y_pos, people)
+    plt.xlabel('Performance')
+    plt.title('How fast do you want to go today?')
     plt.show()
 
 
-def aa():
+def fill():
+    """
+    Simple demo of the fill function.
+    """
 
-    import pylab as pl
-    # make an array of random numbers with a gaussian distribution with
-    # mean = 5.0
-    # rms = 3.0
-    # number of points = 1000
-    data = np.random.normal(5.0, 3.0, 1000)
-    # make a histogram of the data array
-    pl.hist(data)
-    # make plot labels
-    pl.xlabel('data')
-    pl.show()
+    x = np.linspace(0, 1, 500)
+    y = np.sin(4 * np.pi * x) * np.exp(-5 * x)
 
-def plot():
+    plt.fill(x, y)
+    plt.grid(True)
+    plt.show()
 
-    x = [0, 1, 2, 3, 4, 5]
-    y = [0.1, 0.2, 0.2, 0.3, 0.2, 0.1]
+def scatter():
+    """
+    Simple demo of a scatter plot.
+    """
+    N = 50
+    x = np.random.rand(N)
+    y = np.random.rand(N)
+    colors = np.random.rand(N)
+    area = np.pi * (15 * np.random.rand(N))**2  # 0 to 15 point radiuses
 
-    plt.plot(x, y, '-.r')
-
+    plt.scatter(x, y, s=area, c=colors, alpha=0.5)
     plt.show()
 
 
 def main():
-    plot()
+    scatter()
 
 if __name__ == '__main__':
     main()
