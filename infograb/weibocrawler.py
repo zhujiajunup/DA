@@ -5,8 +5,9 @@ import urllib.request
 import urllib.parse
 import json
 from grabutil.mysqlconnection import MysqlConnection
-import redis
+# import redis
 import os
+
 
 from time import sleep, localtime, strftime
 
@@ -23,16 +24,16 @@ class WeiboCrawler:
                         {"HTTP": "60.191.153.12:3128"}, {"HTTP": "60.191.164.22:3128"}, {"HTTP": "80.242.219.50:3128"},
                         {"HTTP": "86.100.118.44:80"}, {"HTTP": "88.214.207.89:3128"}, {"HTTP": "91.183.124.41:80"},
                         {"HTTP": "93.51.247.104:80"}]
-        self.user_insert_query = 'insert into weibo.user(user_id, description, fans_num, screen_name,' \
+        self.user_insert_query = 'replace into weibo.user(user_id, description, fans_num, screen_name,' \
                                  ' statuses_count, follow_num, profile_image_url, profile_url) value ' \
                                  '(%s, %s, %s, %s, %s, %s, %s, %s)'
-        self.blog_insert_query = 'insert into weibo.blog(blog_id, blog_text, blog_source, blog_created_at, ' \
+        self.blog_insert_query = 'replace into weibo.blog(blog_id, blog_text, blog_source, blog_created_at, ' \
                                  'blog_created_timestamp, blog_like_count, blog_comment_count, ' \
                                  'blog_forward_count, blog_pic_ids, blog_retweet_id, blog_user_id) value (%s, %s, %s, %s, %s, ' \
                                  '%s, %s, %s, %s, %s, %s)'
-        self.comment_insert_query = 'insert into weibo.comment(comment_id, comment_text, created_at,' \
+        self.comment_insert_query = 'replace into weibo.comment(comment_id, comment_text, created_at,' \
                                     ' like_counts, comment_user_id) value(%s, %s, %s, %s, %s)'
-        self.pic_insert_query = 'insert into weibo.picture(pic_id, pic_url) value (%s, %s)'
+        self.pic_insert_query = 'replace into weibo.picture(pic_id, pic_url) value (%s, %s)'
         self.head = {
             'Accept': '*/*',
             # 'Accept-Encoding': 'gzip,deflate,sdch',
@@ -57,7 +58,7 @@ class WeiboCrawler:
     def login(self):
         args = {
             'username': '767543579@qq.com',
-            'password': 'QWErty',
+            'password': 'JVS7452014',
             'savestate': 1,
             'ec': 0,
             'pagerefer': 'https://passport.weibo.cn/signin/'
@@ -234,7 +235,7 @@ class WeiboCrawler:
             self.change_proxy()
 
     def start(self):
-        self.login()
+        # self.login()
         self.change_header()
         self.grab_user_blogs()
         # self.grab_weibo()
