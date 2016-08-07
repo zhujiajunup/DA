@@ -2,13 +2,14 @@ __author__ = 'jjzhu'
 from threading import Thread
 from queue import Queue
 from time import sleep
+
+
 # q是任务队列
-#NUM是并发线程总数
-#JOBS是有多少任务
+# NUM是并发线程总数
+# JOBS是有多少任务
 q = Queue()
 NUM = 2
 JOBS = 10
-
 
 # 具体的处理函数，负责处理单个任务
 def do_somthing_using(arguments):
