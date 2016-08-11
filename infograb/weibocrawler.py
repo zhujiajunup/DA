@@ -1,5 +1,3 @@
-__author__ = 'Administrator'
-
 import http.cookiejar
 import urllib.request
 import urllib.parse
@@ -235,10 +233,10 @@ class WeiboCrawler:
             self.change_proxy()
 
     def start(self):
-        # self.login()
+        self.login()
         self.change_header()
-        self.grab_user_blogs()
-        # self.grab_weibo()
+        # self.grab_user_blogs()
+        self.grab_weibo()
         # self.save_pic()
 
     def save_pic(self):
@@ -294,6 +292,7 @@ class WeiboCrawler:
         print('浏览器正在打开url：' + open_url)
         rsp = self.opener.open(open_url)
         return_json = json.loads(rsp.read().decode())
+        print(return_json)
         card_group = return_json[0]['card_group']
         next_cursor = return_json[0]['next_cursor']
         previous_cursor = return_json[0]['previous_cursor']
@@ -328,6 +327,8 @@ class WeiboCrawler:
                 user = mblog['user']
                 user_id = user['id']
                 self.grab_comment(curr_blog_id)
+            self.change_proxy()
+            sleep(1*60)
         return
 
     def print_info(self, group):

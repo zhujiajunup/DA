@@ -1,5 +1,3 @@
-__author__ = 'jjzhu'
-
 import pymysql
 import time
 import numpy as np

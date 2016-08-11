@@ -130,6 +130,7 @@ class LagouCrawler:
         """
         print("开始获取所有城市")
         op = self.my_opener.open(self.seed_url)
+
         my_soup = BeautifulSoup(op.read().decode(), 'html.parser')
         all_positions_html = my_soup.find(class_='more more-positions')
         all_positions_hrefs = all_positions_html.find_all('a')
@@ -254,6 +255,7 @@ class LagouCrawler:
         postdata = urllib.parse.urlencode({'first': 'true', 'pn': pn, 'kd': kd}).encode()
         pn += 1
         try:
+            print(url, postdata)
             op = self.my_opener.open(url, postdata)
         except Exception:
             sleep(60)
@@ -284,6 +286,7 @@ class LagouCrawler:
         for i in range(0, int(all_cities.__len__())):
             start_time = datetime.datetime.now()
             for j in range(0, int(all_positions.__len__())):
+
                 grabed_cities_file = open("d:\\grabed3.txt", 'a')
                 self.grab_category(city=all_cities[i], kd=all_positions[j])
                 end_time = datetime.datetime.now()

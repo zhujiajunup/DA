@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d411713-b4a4-4b7f-97f9-f3f8ae718de7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infograb/lagoucrawler.py" afterPath="$PROJECT_DIR$/infograb/lagoucrawler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabutil/mysqlconnection.py" afterPath="$PROJECT_DIR$/grabutil/mysqlconnection.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabutil/redisconnection.py" afterPath="$PROJECT_DIR$/grabutil/redisconnection.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infograb/weibocrawler.py" afterPath="$PROJECT_DIR$/infograb/weibocrawler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -19,10 +21,11 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/lagoucrawler$analysis.coverage" NAME="analysis Coverage Results" MODIFIED="1461142372998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataanalysis" />
+    <SUITE FILE_PATH="coverage/lagoucrawler$lagoucrawler.coverage" NAME="lagoucrawler Coverage Results" MODIFIED="1470571957738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/infograb" />
     <SUITE FILE_PATH="coverage/lagoucrawler$matplot.coverage" NAME="matplot Coverage Results" MODIFIED="1461058416713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataanalysis" />
     <SUITE FILE_PATH="coverage/lagoucrawler$crawler.coverage" NAME="crawler Coverage Results" MODIFIED="1460271237779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/infograb" />
+    <SUITE FILE_PATH="coverage/lagoucrawler$weibo.coverage" NAME="weibo Coverage Results" MODIFIED="1470925416575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/infograb" />
     <SUITE FILE_PATH="coverage/lagoucrawler$msl.coverage" NAME="msl Coverage Results" MODIFIED="1461122178077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/grabutil" />
-    <SUITE FILE_PATH="coverage/lagoucrawler$weibo.coverage" NAME="weibo Coverage Results" MODIFIED="1470563928519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/infograb" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -45,93 +48,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="analysis.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="analysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataanalysis/analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="16" />
+            <state vertical-scroll-proportion="-0.34793815">
+              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
               <folding>
                 <marker date="1470540935486" expanded="true" signature="662:834" placeholder="..." />
                 <marker date="1470540935486" expanded="true" signature="1691:1747" placeholder="..." />
                 <marker date="1470540935486" expanded="true" signature="1991:2097" placeholder="..." />
                 <marker date="1470540935486" expanded="true" signature="2459:2603" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thread_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/thread_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-              <folding>
-                <element signature="e#21#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weibocrawler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/infograb/weibocrawler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30833334">
-              <caret line="236" column="20" selection-start-line="236" selection-start-column="20" selection-end-line="236" selection-end-column="20" />
-              <folding>
-                <element signature="e#30#51#0" expanded="true" />
-                <marker date="1470563928511" expanded="true" signature="982:1225" placeholder="insert into ..." />
-                <marker date="1470563928511" expanded="true" signature="1261:1625" placeholder="insert into ..." />
-                <marker date="1470563928511" expanded="true" signature="1671:1825" placeholder="insert into ..." />
-                <marker date="1470563928511" expanded="true" signature="1860:1918" placeholder="insert into ..." />
-                <marker date="1470563928511" expanded="true" signature="7841:7880" placeholder="select * fro..user..." />
-                <marker date="1470563928511" expanded="true" signature="7925:8273" placeholder="update weibo..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysqlconnection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grabutil/mysqlconnection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-              <folding>
-                <element signature="e#22#36#0" expanded="true" />
-                <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-                <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-                <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-                <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matplotlibtest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataanalysis/matplotlibtest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -147,12 +74,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/infograb/lagoucrawler.py" />
         <option value="$PROJECT_DIR$/dataanalysis/matplotlibtest.py" />
         <option value="$PROJECT_DIR$/dataanalysis/analysis.py" />
         <option value="$PROJECT_DIR$/test/thread_test.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/grabutil/mysqlconnection.py" />
+        <option value="$PROJECT_DIR$/grabutil/redisconnection.py" />
+        <option value="$PROJECT_DIR$/infograb/lagoucrawler.py" />
         <option value="$PROJECT_DIR$/infograb/weibocrawler.py" />
       </list>
     </option>
@@ -167,9 +95,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="52" />
     <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -194,6 +122,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -202,46 +132,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lagoucrawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lagoucrawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="infograb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/infograb/lagoucrawler.py" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.SASS/SCSS" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
   </component>
@@ -453,23 +357,22 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unnamed" type="Python.PyramidServer" factoryName="Pyramid server">
+    <configuration default="false" name="lagoucrawler" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\Python34\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../../bin/python3.4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/infograb" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="lagoucrawler" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="CONFIGURATION_FILE" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/infograb/lagoucrawler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="false" name="analysis" type="PythonConfigurationType" factoryName="Python">
@@ -573,7 +476,7 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Pyramid server.Unnamed" />
+      <item index="0" class="java.lang.String" itemvalue="Python.lagoucrawler" />
       <item index="1" class="java.lang.String" itemvalue="Python.analysis" />
       <item index="2" class="java.lang.String" itemvalue="Python.crawler" />
       <item index="3" class="java.lang.String" itemvalue="Python.weibo" />
@@ -628,41 +531,29 @@
       <option name="project" value="LOCAL" />
       <updated>1470553131588</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="2016-08-07 19 46">
+      <created>1470570415154</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1470570415154</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="0" />
+    <frame x="65" y="52" width="1301" height="716" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35871404" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282572" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35748792" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25642672" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25338647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25273865" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22629482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36876008" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23027888" sideWeight="0.48979592" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38486314" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41867954" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22629482" sideWeight="0.5102041" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5801324" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -670,12 +561,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41962776" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -721,18 +610,19 @@
     <MESSAGE value="matplotlib test" />
     <MESSAGE value="2016-08-07" />
     <MESSAGE value="2016-08-07 14 57" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016-08-07 14 57" />
+    <MESSAGE value="2016-08-07 19 46" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016-08-07 19 46" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/infograb/weibocrawler.py</url>
-          <line>348</line>
+          <line>349</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/infograb/weibocrawler.py</url>
-          <line>269</line>
+          <line>267</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -741,45 +631,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/thread_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding>
-            <element signature="e#21#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infograb/weibocrawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#30#51#0" expanded="true" />
-            <marker date="1470563928511" expanded="true" signature="982:1225" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1261:1625" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1671:1825" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1860:1918" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="7841:7880" placeholder="select * fro..user..." />
-            <marker date="1470563928511" expanded="true" signature="7925:8273" placeholder="update weibo..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,11 +643,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -801,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,13 +683,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#30#51#0" expanded="true" />
-            <marker date="1470563928511" expanded="true" signature="982:1225" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1261:1625" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1671:1825" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1860:1918" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="7841:7880" placeholder="select * fro..user..." />
-            <marker date="1470563928511" expanded="true" signature="7925:8273" placeholder="update weibo..." />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="select * fro..user..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="update weibo..." />
           </folding>
         </state>
       </provider>
@@ -848,7 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -865,11 +713,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -878,7 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -910,13 +753,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
           <folding>
-            <element signature="e#30#51#0" expanded="true" />
-            <marker date="1470563928511" expanded="true" signature="982:1225" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1261:1625" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1671:1825" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1860:1918" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="7841:7880" placeholder="select * fro..user..." />
-            <marker date="1470563928511" expanded="true" signature="7925:8273" placeholder="update weibo..." />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="select * fro..user..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="update weibo..." />
           </folding>
         </state>
       </provider>
@@ -925,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -934,11 +776,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -947,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -979,13 +816,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
           <folding>
-            <element signature="e#30#51#0" expanded="true" />
-            <marker date="1470563928511" expanded="true" signature="982:1225" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1261:1625" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1671:1825" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1860:1918" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="7841:7880" placeholder="select * fro..user..." />
-            <marker date="1470563928511" expanded="true" signature="7925:8273" placeholder="update weibo..." />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="select * fro..user..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="update weibo..." />
           </folding>
         </state>
       </provider>
@@ -994,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,11 +839,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1016,7 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,11 +879,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1061,7 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,11 +919,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1106,7 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,7 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1163,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,13 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infograb/lagoucrawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1206,19 +1017,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataanalysis/analysis.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="16" />
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../lib/python3.4/dist-packages/redis/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.480315">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../lib/python3.4/dist-packages/redis/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40419948">
+          <caret line="616" column="0" selection-start-line="616" selection-start-column="0" selection-end-line="616" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grabutil/redisconnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.070866145">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infograb/lagoucrawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1746988">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grabutil/mysqlconnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3253012">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <marker date="1470540935486" expanded="true" signature="662:834" placeholder="..." />
-            <marker date="1470540935486" expanded="true" signature="1691:1747" placeholder="..." />
-            <marker date="1470540935486" expanded="true" signature="1991:2097" placeholder="..." />
-            <marker date="1470540935486" expanded="true" signature="2459:2603" placeholder="..." />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1227,21 +1069,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/infograb/weibocrawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
+        <state vertical-scroll-proportion="3.8222892">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="select * fro..user..." />
+            <marker date="1470572157136" expanded="true" signature="-1:-1" placeholder="update weibo..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/thread_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.42168674">
           <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding>
             <element signature="e#21#49#0" expanded="true" />
@@ -1249,32 +1098,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grabutil/mysqlconnection.py">
+    <entry file="file://$PROJECT_DIR$/dataanalysis/analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state vertical-scroll-proportion="-0.34793815">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
           <folding>
-            <element signature="e#22#36#0" expanded="true" />
-            <marker date="1470557624651" expanded="true" signature="996:1052" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1072:1276" placeholder="select count..blog..." />
-            <marker date="1470557624651" expanded="true" signature="1296:1422" placeholder="..." />
-            <marker date="1470557624651" expanded="true" signature="1784:1928" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infograb/weibocrawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30833334">
-          <caret line="236" column="20" selection-start-line="236" selection-start-column="20" selection-end-line="236" selection-end-column="20" />
-          <folding>
-            <element signature="e#30#51#0" expanded="true" />
-            <marker date="1470563928511" expanded="true" signature="982:1225" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1261:1625" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1671:1825" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="1860:1918" placeholder="insert into ..." />
-            <marker date="1470563928511" expanded="true" signature="7841:7880" placeholder="select * fro..user..." />
-            <marker date="1470563928511" expanded="true" signature="7925:8273" placeholder="update weibo..." />
+            <marker date="1470540935486" expanded="true" signature="662:834" placeholder="..." />
+            <marker date="1470540935486" expanded="true" signature="1691:1747" placeholder="..." />
+            <marker date="1470540935486" expanded="true" signature="1991:2097" placeholder="..." />
+            <marker date="1470540935486" expanded="true" signature="2459:2603" placeholder="..." />
           </folding>
         </state>
       </provider>
